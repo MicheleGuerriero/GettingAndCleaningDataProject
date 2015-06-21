@@ -63,3 +63,4 @@ tidy<-rename(tidy, c("fBodyAccMag-std()"="FFTBodyAccelerationMagStandardDeviatio
 tidy_melt <- melt(tidy, id.vars = c("activity", "subject"))
 tidy_melt<-cast(activity + variable ~ subject, data = tidy_melt, fun = mean)
 
+write(tidy_melt,file="./output.txt",row.names=FALSE)
